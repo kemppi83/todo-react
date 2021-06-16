@@ -1,0 +1,37 @@
+.input-form {
+  background-color: #ffa3a5;
+  margin-top: 30px;
+  padding: 10px;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 600px;
+}
+  
+.input-form h3 {
+  width: 140px;
+  padding-left: 4px;
+  font-weight: bold;
+  border: solid 1px;
+  background-color: white;
+  border-color: #ffa3a5;
+  margin: -20px 0 10px 0;
+  border-radius: 10px;
+}
+
+.input-form__title, .input-form__description {
+  width: 95%;
+  margin: 10px;
+}
+
+.input-form--submit {
+  width: 60px;
+  background-color: black;
+  border-color: black;
+  color: white;
+  border-radius: 10px;
+}
+
+.input-form--submit:hover {
+  background-color: grey;
+  border-color: grey;
+}

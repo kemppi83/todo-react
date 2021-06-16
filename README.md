@@ -1,3 +1,7 @@
+# My version of the classic todo-app
+
+The app is written in React and the project was initiated using Create React App. The standard CRA instructions are written here below.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
