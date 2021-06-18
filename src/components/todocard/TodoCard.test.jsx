@@ -1,9 +1,9 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import TodoCard from './TodoCard';
 
 test('renders learn react link', () => {
-  const { getByText } = render(<TodoCard
+  render(<TodoCard
     todo={{
       description: 'This is description',
       id: '42bdf00f-11a3-402f-b0ff-7a7057ed5da8',
@@ -14,6 +14,6 @@ test('renders learn react link', () => {
     changeStatus={e => console.log(e.target)}
     removeTodo={e => console.log(e.target)} />);
 
-  getByText('This is description');
-  getByText('This is title');
+  screen.getByText('This is description');
+  screen.getByText('This is title');
 });

@@ -7,7 +7,8 @@
       "plugin:react/recommended",
       "airbnb",
       "salt",
-      "salt/react"
+      "salt/react",
+      "plugin:jest-dom/recommended"
     ],
     "parserOptions": {
       "ecmaFeatures": {
@@ -17,10 +18,27 @@
       "sourceType": "module"
     },
     "plugins": [
-      "react"
+      "react",
+      "testing-library",
+      "jest-dom"
     ],
     "rules": {
       "react/jsx-filename-extension": [0],
-      "import/no-named-as-default": 0
-    }
+      "import/no-named-as-default": 0,
+      "testing-library/await-async-query": "error",
+      "testing-library/no-await-sync-query": "error",
+      "testing-library/no-debug": "warn",
+      "testing-library/no-dom-import": "off",
+      "jest-dom/prefer-checked": "error",
+      "jest-dom/prefer-enabled-disabled": "error",
+      "jest-dom/prefer-required": "error",
+      "jest-dom/prefer-to-have-attribute": "error"
+    },
+    "overrides": [
+      {
+        // 3) Now we enable eslint-plugin-testing-library rules or preset only for matching files!
+        "files": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
+        "extends": ["plugin:testing-library/react"]
+      }
+    ]
   }
