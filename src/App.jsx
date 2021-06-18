@@ -32,8 +32,8 @@ const App = () => {
 
   return (
     <div className="App">
-      <AddTodo todos={todos} setTodos={setTodos} />
-      {todos.length > 0 && (
+      <AddTodo setTodos={setTodos} />
+      {todos && todos.length > 0 && (
       <TodoList
         todos={todos}
         changeStatus={changeStatus}

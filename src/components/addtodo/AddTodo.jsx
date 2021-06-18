@@ -3,32 +3,37 @@ import { PropTypes } from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 
 const AddTodo = props => {
-  const { todos, setTodos } = props;
+  const { setTodos } = props;
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [error, setError] = useState(false);
 
   const pushTodo = () => {
-    const copyTodos = [...todos];
-    copyTodos.push({
+    if (!title) {
+      return setError(true);
+    }
+    setError(false);
+    setTodos(old => ([...old, {
       id: uuidv4(),
       title,
       description,
       timestamp: Date.now(),
       status: 'active',
-    });
-    setTodos(copyTodos);
+    }]));
     setTitle('');
-    setDescription('');
+    return setDescription('');
   };
 
   return (
     <div className="input-form">
       <h3>Register New ToDo</h3>
+      {error
+      && <p className="input-form__error">Please provide a task title</p>}
       <input
         className="input-form__title"
         name="title"
         type="text"
-        placeholder="Title"
+        placeholder="Title*"
         value={title}
         onChange={e => setTitle(e.target.value)} />
       <input
@@ -41,7 +46,7 @@ const AddTodo = props => {
       <button
         type="button"
         className="input-form--submit"
-        onClick={() => pushTodo()}>
+        onClick={pushTodo}>
         Add
       </button>
     </div>
@@ -51,6 +56,5 @@ const AddTodo = props => {
 export default AddTodo;
 
 AddTodo.propTypes = {
-  todos: PropTypes.arrayOf(PropTypes.object).isRequired,
   setTodos: PropTypes.func.isRequired,
 };
